@@ -19,7 +19,7 @@ kubectl get svc -n ingress-nginx
 ```
 helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 kubectl create namespace cattle-system
-kubectl apply –validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.0.4/cert-manager.crds.yaml
+kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.0.4/cert-manager.crds.yaml
 kubectl create namespace cert-manager
 helm repo add jetstack https://charts.jetstack.io
 helm repo update
@@ -28,7 +28,7 @@ kubectl get pods -n cert-manager
 ```
 Esta opção usa um gerenciador de certificados para solicitar e renovar automaticamente os certificados Let’s Encrypt. Este é um serviço gratuito que fornece um certificado válido, pois Let’s Encrypt é uma CA confiável.
 ```
-helm install rancher rancher-latest/rancher --namespace cattle-system –set hostname=seu-dominio --set ingress.tls.source=letsEncrypt --set letsEncrypt.email=email@exemple.com
+helm install rancher rancher-latest/rancher --namespace cattle-system --set hostname=seu-dominio --set ingress.tls.source=letsEncrypt --set letsEncrypt.email=email@exemple.com
 kubectl -n cattle-system get deploy rancher
 ```
 
