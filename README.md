@@ -52,7 +52,7 @@ Vamos realizar o import para que o rancher obtenha as informações do cluster E
      style="float: left; margin-right: 10px;" />
 
 - Depois de concluindo a ativação temos as informações do cluster em dashboard
-<img src="https://i.imgur.com/BxOQozz.png"
+<img src="https://i.imgur.com/hLksD82.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
 
@@ -60,8 +60,8 @@ Vamos realizar o import para que o rancher obtenha as informações do cluster E
 
 Uma das vantagens do rancher é poder instalar diversos serviços no próprio painel em apps usando helm e depois de instalado é criado um painel no próprio rancher aonde é possível realizar o monitoramento, e também acessar as urls do grafana e prometheus
 
-- Painel Rancher
-<img src="https://i.imgur.com/hLksD82.png"
+- Painel monitor Rancher
+<img src="https://i.imgur.com/s4mB65W.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
 
