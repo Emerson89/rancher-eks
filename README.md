@@ -61,7 +61,12 @@ Vamos realizar o import para que o rancher obtenha as informações do cluster E
 Uma das vantagens do rancher é poder instalar diversos serviços no próprio painel em apps usando helm e depois de instalado é criado um painel no próprio rancher aonde é possível realizar o monitoramento, e também acessar as urls do grafana e prometheus
 
 - Painel Rancher
-<img src="https://i.imgur.com/LvAqQK8.png"
+<img src="https://i.imgur.com/hLksD82.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
+
+- Painel rancher metricas
+<img src="https://i.imgur.com/gaxuCHn.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
 
@@ -72,10 +77,5 @@ Uma das vantagens do rancher é poder instalar diversos serviços no próprio pa
 
 - Painel Prometheus
 <img src="https://i.imgur.com/3oVYwOJ.png"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" />
-
-- Painel rancher metricas
-<img src="https://i.imgur.com/gaxuCHn.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
