@@ -12,6 +12,8 @@ E um cluster eks configurado
 ## Instalação do Ingress
 Para expor o endpoint do rancher fora do cluster, precisamos configurar o controlador de entrada nginx com o serviço de balanceador de carga na frente do nginx vamos instalar usando o helm.
 ```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx --set controller.service.type=LoadBalancer --version 3.12.0 --create-namespace
 kubectl get svc -n ingress-nginx
 ```
