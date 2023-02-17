@@ -11,6 +11,8 @@ E um cluster eks configurado
 
 ## Testado
  - Kubernetes 1.23
+ - ingress-nginx/controller:v1.9.2
+ - cert manager v1.9.2
 
 ## Instalação do Ingress
 Para expor o endpoint do rancher fora do cluster, precisamos configurar o controlador de entrada nginx com o serviço de balanceador de carga na frente do nginx vamos instalar usando o helm.
@@ -24,11 +26,11 @@ kubectl get svc -n ingress-nginx
 ```
 helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 kubectl create namespace cattle-system
-kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.6.4/cert-manager.crds.yaml
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.9.2/cert-manager.crds.yaml
 kubectl create namespace cert-manager
 helm repo add jetstack https://charts.jetstack.io
 helm repo update
-helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.6.4
+helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.9.2
 kubectl get pods -n cert-manager
 ```
 Esta opção usa um gerenciador de certificados para solicitar e renovar automaticamente os certificados Let’s Encrypt. Este é um serviço gratuito que fornece um certificado válido, pois Let’s Encrypt é uma CA confiável.
