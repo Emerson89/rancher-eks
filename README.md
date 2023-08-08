@@ -58,6 +58,10 @@ helm upgrade --install rancher rancher-latest/rancher --version 2.7.0 \
   --set replicas=3 --set tls=external --create-namespace
 ```
 
+```
+kubectl patch service rancher -n cattle-system -p '{"spec":{"type":"NodePort"}}'
+```
+
 # Import rancher
 
 Vamos realizar o import para que o rancher obtenha as informações do cluster EKS
