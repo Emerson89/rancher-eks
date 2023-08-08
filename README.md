@@ -43,10 +43,20 @@ Para utilizar o ALB e ACM AWS você deve instalar o controller segue o link, é 
 https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html
 
 Depois de instalado execute o  helm do rancher
+
 ```
-helm install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher.example.com --set 'ingress.extraAnnotations.alb\.ingress\.kubernetes\.io/scheme=internet-facing' --set 'ingress.extraAnnotations.alb\.ingress\.kubernetes\.io/success-codes=200\,404\,301\,302' --set 'ingress.extraAnnotations.alb\.ingress\.kubernetes\.io/subnets=subnet-XXX\,subnet-XXX\,subnet-XXX' --set 'ingress.extraAnnotations.alb\.ingress\.kubernetes\.io/listen-ports=[{\"HTTP\": 80}\, {\"HTTPS\": 443}]' --set 'ingress.extraAnnotations.alb\.ingress\.kubernetes\.io/certificate-arn=arn:aws:acm:eu-central-1:XXX:certificate/XXX' --set 'ingress.extraAnnotations.kubernetes\.io/ingress\.class=alb'  --set replicas=3 --set tls=external --create-namespace
-``` 
-Feito basta apontar seu loadbalancer ao domínio no route53
+helm upgrade --install rancher rancher-latest/rancher --version 2.7.0 \
+  --namespace cattle-system \
+  --set hostname=rancher.example.io \
+  --set rancherImageTag=v2.7.0 \
+  --set 'ingress.extraAnnotations.alb\.ingress\.kubernetes\.io/scheme=internet-facing' \
+  --set 'ingress.extraAnnotations.alb\.ingress\.kubernetes\.io/listen-ports=[{\"HTTP\": 80}\, {\"HTTPS\": 443}]' \
+  --set 'ingress.extraAnnotations.alb\.ingress\.kubernetes\.io/certificate-arn=arn:aws:acm:REGION:xxxxxxxxxxx:certificate/xxxxxxxxxxxxx' \
+  --set 'ingress.extraAnnotations.kubernetes\.io/ingress\.class=alb' \
+  --set 'ingress.extraAnnotations.external-dns\.alpha\.kubernetes\.io/hostname=rancher.examplo.io \
+  --set 'ingress.extraAnnotations.nginx\.org/websocket-services=rancher \
+  --set replicas=3 --set tls=external --create-namespace
+```
 
 # Import rancher
 
